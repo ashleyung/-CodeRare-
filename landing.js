@@ -70,3 +70,42 @@ loginForm.onsubmit = function (event) {
        alert("An error occurred during registration. Please try again later.");
      });
  }
+
+//  REFERENCE CODE FROM REMSY * TO LOOK AT LATER 
+
+// function register(registerData) {
+//   // POST /auth/login
+//   var myHeaders = new Headers();
+//   myHeaders.append("Authorization", "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InN0cmluZyIsImlhdCI6MTY3MzQ2NzM5NCwiZXhwIjoxNjczNTUzNzk0fQ.6mDATbufXM_5rRzSseX2A_J1YvmPh_HEVYmEqIw6GA4");
+//   myHeaders.append("Content-Type", "application/json");
+  
+//   // var raw = JSON.stringify({
+//   //   "username": "remsey3",
+//   //   "fullName": "Remsey Mailjard",
+//   //   "password": "test"
+//   // });
+  
+//   var requestOptions = {
+//     method: 'POST',
+//     headers: myHeaders,
+//     body: JSON.stringify(registerData),
+//     redirect: 'follow'
+//   };
+
+//   fetch("https://microbloglite.herokuapp.com/api/users", requestOptions)
+//     .then(response => response.text())
+//     .then(result => console.log(result))
+//     .catch(error => console.log('error', error));
+//   fetch(api + "/api/users", requestOptions)
+//     .then((response) => response.json())
+//     .then((result) => {
+//       alert('this was succesfull');
+//       console.log(result);
+//       window.localStorage.setItem(
+//         "register-data",
+//         JSON.stringify(registerData)
+//       );
+//       window.location.assign("index.html"); // redirect
+//     })
+//     .catch((error) => console.log("error", error));
+// }
