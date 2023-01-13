@@ -126,8 +126,7 @@ let requestOptions = {
 fetch("https://microbloglite.herokuapp.com/api/users/string", requestOptions)
   .then(response => response.text())
   .then(result =>   document.getElementById("user-profile").innerHTML=result);
-  document.getElementById()
-;
+
 }
 
 getUserInfo();
