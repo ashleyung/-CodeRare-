@@ -24,20 +24,21 @@
   <main>
     <div id="user-profile">
       <h1>Welcome <span id="username"></span></h1>
-      <img id="user-pic" src="" alt="User Profile Picture">
+      <img id="user-pic" src="images/hasbulla.jpg" alt="User Profile Picture">
+      <div id="user-fullname"></div>
       <p id="user-bio"></p>
       <div id="user-posts"></div>
       <button id="logout-button" onclick=logout()>Log Out</button>
     </div>
     <br>
-    <form id="create-post-form">
+    <form id="create-post-form" onsubmit="createPost()">
       <label>Title:</label>
       <input type="text" id="post-title" name="title" required>
       <br>
       <label>Content:</label>
       <textarea id="post-content" name="content" required></textarea>
       <br>
-      <button type="submit" onclick="createPost()">Create Post</button>
+      <button type="submit">Create Post</button>
     </form>
     
 
@@ -56,6 +57,7 @@
 
    <!-- Custom Javascript -->
    <script src="scripts/profile.js"></script>
+   <script src="scripts/auth.js"></script>
 </body>
 
 </html>
