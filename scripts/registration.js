@@ -40,7 +40,7 @@ window.addEventListener('load', function () {
       .then(json => {
           setTimeout(
               function () {
-                  window.location.assign("index.html");
+                  window.location.assign("post.html");
               }, 5000);
          msg.innerHTML = "User created successfully, Redirecting to Log In page"
   

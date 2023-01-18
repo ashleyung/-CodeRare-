@@ -32,9 +32,11 @@
     </header>
 
     <main>
+        <input type="button" value="Click to tap out!" onclick="logout()"> 
         <h1>Create a post</h1>
-        <textarea>
+        <textarea id="myPost">
         </textarea>
+        <input type="button" value="Post!" onclick="SendPost()">
         <h2>View the latest posts!</h2>
         <p id="results">
             
@@ -51,6 +53,7 @@
 
     <!-- Page-specific code -->
     <script src="../scripts/posts.js"></script>
+    <script src="../scripts/auth.js"></script>
 </body>
 
 </html>
