@@ -29,6 +29,16 @@
       <div id="user-posts"></div>
       <button id="logout-button" onclick=logout()>Log Out</button>
     </div>
+    <br>
+    <form id="create-post-form">
+      <label>Title:</label>
+      <input type="text" id="post-title" name="title" required>
+      <br>
+      <label>Content:</label>
+      <textarea id="post-content" name="content" required></textarea>
+      <br>
+      <button type="submit" onclick="createPost()">Create Post</button>
+    </form>
     
 
   </main>
