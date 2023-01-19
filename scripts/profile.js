@@ -5,7 +5,7 @@ function getUserInfo() {
   myHeaders.append("accept", "application/json");
   myHeaders.append(
     "Authorization",
-    "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im1vbmtleWtpbmciLCJpYXQiOjE2NzQwODE4NjUsImV4cCI6MTY3NDE2ODI2NX0.7-m49KRcgB1KDXf6_7HbNLOwUHvtXIvjosicgN48rz0"
+    "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im1vbmtleWtpbmciLCJpYXQiOjE2NzQxNjgzMjQsImV4cCI6MTY3NDI1NDcyNH0.8K0BJFGrhGdTtM539PMbv22A7eeohVm2TTIJLUq7Y_c"
   );
 
   let requestOptions = {
@@ -20,14 +20,14 @@ function getUserInfo() {
       // Extract the relevant information from the API response
       let username = result.username;
       let fullName = result.fullName;
-      let bio = result.bio;
+      let about = result.about;
       let profile_picture = result.profile_picture;
       let posts = result.posts;
 
       // Insert the information into the appropriate elements in the HTML
       document.getElementById("username").innerHTML = username;
       document.getElementById("user-fullname").innerHTML= fullName;
-      document.getElementById("user-bio").innerHTML = bio;
+      document.getElementById("user-about").innerHTML = about;
       document.getElementById("user-pic").src = profile_picture;
       document.getElementById("user-posts").innerHTML = posts;
     })
@@ -39,6 +39,54 @@ function getUserInfo() {
 getUserInfo();
 
 // Creating a Post on Profile Page 
+
+function SendPost() {
+
+  alert("function activated");
+
+  const message = document.getElementById("post-content").value;
+
+  let myHeaders = new Headers();
+  myHeaders.append(
+    "Authorization",
+    "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im1vbmtleWtpbmciLCJpYXQiOjE2NzQxNjgzMjQsImV4cCI6MTY3NDI1NDcyNH0.8K0BJFGrhGdTtM539PMbv22A7eeohVm2TTIJLUq7Y_c"
+  );
+  myHeaders.append("Content-Type", "application/json");
+
+  let raw = JSON.stringify({
+    text: message,
+  });
+
+  let requestOptions = {
+    method: "POST",
+    headers: myHeaders,
+    body: raw,
+  };
+
+  fetch("https://microbloglite.herokuapp.com/api/posts", requestOptions)
+  .then((response) => response.json()) 
+  .then((data) => {
+      // code to display the post data on the page
+      const postContainer = document.getElementById("post-container");
+const newPost = document.createElement("div");
+newPost.classList.add("post");
+newPost.innerHTML = `
+    <h3>${data.title}</h3>
+    <p>${data.text}</p>
+`;
+postContainer.appendChild(newPost);
+
+  })
+  .catch((error) => console.log("error", error));
+}
+
+
+const form = document.getElementById("create-post-form")
+form.addEventListener("submit",function (e){ 
+   e.preventDefault()
+   SendPost();
+
+})
 
 // function createPost (){
 //   let myHeaders = new Headers();
@@ -123,26 +171,29 @@ getUserInfo();
 //     });
 // }
 
-function postBtnOnClick() {
-      let inputElement = document.getElementById('post');
-      let textToPost = inputElement.value;
-      let data = { text: textToPost };
-    
-      let options = {
-        method: 'POST',
-        body: JSON.stringify(data),
-        headers: {
-          "Content-Type": 'application/json',
-          "Authorization": `Bearer ${(loginData()).token}`
-        },
-      };
-    
-      fetch("https://microbloglite.herokuapp.com/api/posts", options)
-        .then(response => {
-          console.log(data)
-          if (response.ok) {
-            inputElement.value = '';
-          }
-        });
-      console.log("Post updating...")
-    }
+
+// ROSE POST FUNCTION
+// function postBtnOnClick() {
+// let inputElement = document.getElementById('post-content');
+// let textToPost = inputElement.value;
+// let data = { text: textToPost };
+
+// let options = {
+//   method: 'POST',
+//   body: JSON.stringify(data),
+//   headers: {
+//   "Content-Type": 'application/json',
+//  "Authorization": `Bearer ${(loginData()).token}`
+//  },
+//   };
+  
+//   fetch("https://microbloglite.herokuapp.com/api/posts", options)
+// .then(response => {
+//   console.log(data)
+//  if (response.ok) {
+//   inputElement.value = '';
+//   }
+//   });
+// console.log("Post updating...")
+//   }
+

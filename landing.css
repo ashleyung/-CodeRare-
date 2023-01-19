@@ -91,4 +91,31 @@ body {
     background-color: #f1f1f1;
     text-align: center;
   }
+/* Profile Page CSS */
+
+    /* CSS styles for the post container */
+    #post-container {
+        width: 80%;
+        margin: 20px auto;
+    }
+
+    /* CSS styles for each individual post */
+    #post-container .post {
+        background-color: #f5f8fa;
+        padding: 20px;
+        margin-bottom: 20px;
+        border-radius: 5px;
+    }
+
+    /* CSS styles for the post title */
+    #post-container .post h3 {
+        margin: 0;
+    }
+
+    /* CSS styles for the post text */
+    #post-container .post p {
+        margin: 10px 0;
+    }
+
+
 
